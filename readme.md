@@ -16,8 +16,14 @@
 * How to spin up a basic server
   * see teddi's youtube video
 * What middleware is, where it goes
+  * middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle.
+    * execute any code
+    * make changes to the request and the response objects
+    * end the request-response cycle
+    * call the next middleware function in the stack
 * What a route handler is and how to write one
-  * /quote - the route handler is basically the endpoint
+  * the handler itself is the function that gets invoked once the path gets matched
+  * express will set up the match to the end path and any other conditions, and the route handler is the function that occurs when the match occurs
 * What params are and how to send them from the client and how to read them on the server (client and server side)
   * params are indicated by a colon at the end of an endpoint - the value that is put into the request gets added to the params object
   * query params are indicated by a ? after a param - get added to a separate query params object, just called query
@@ -31,7 +37,7 @@
   * use bodyParser module --> important if you want to be able to receive data from a client and then parse it
   * have to use the bodyParser methods as middleware!! you have to call app.use(bodyParser.json()...)
 * What GET/POST/PATCH/DELETE are
-  * http requests - verbs that the client uses to send a request to a server
+  * http requests - verbs (methods) that the client uses to send a request to a server
   * this is the kind of response I am sending
   * the server looks for the method and the end point and if those are acceptable, then it executes certain code
   * RESTful servers and RESTful routes - these are part of those RESTful patterns - you want to create
